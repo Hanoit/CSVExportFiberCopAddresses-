@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?><messages><msg code="0" type="2">Tiempo de Inicio: sábado, 28 de diciembre de 2024 10:30:29 p. m.</msg><msg code="0" type="0">23306, 22501</msg><msg code="0" type="0">Authenticated with existing session.</msg><msg code="0" type="0">Using explicitly selected polygons: ['23306', '22501']</msg><msg code="0" type="0">Selected polygons: ['23306', '22501']</msg><msg code="0" type="0">Creating C:\Users\mrivera\Desktop\23306.csv, total addresses=3910 for polygon 23306</msg><msg code="0" type="0">Export completed: C:\Users\mrivera\Desktop\23306.csv</msg><msg code="1" type="100">Error in script execution: Field 'objectid' is empty or invalid for OID 22501.</msg><msg code="1" type="100">Traceback (most recent call last):
+  File "C:\Users\mrivera\Documents\Proyectos\CSVExportFiberCopAddresses-\ExportToCSVFiberCop.py", line 241, in script_tool
+    polygon_name = get_polygon_name(polygon_layer_name, field_name, polygon_oid)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mrivera\Documents\Proyectos\CSVExportFiberCopAddresses-\ExportToCSVFiberCop.py", line 289, in get_polygon_name
+    raise ValueError(f"Field '{field_name}' is empty or invalid for OID {oid}.")
+ValueError: Field 'objectid' is empty or invalid for OID 22501.
+</msg><msg code="0" type="0">Secuencia de comandos errónea Export to CSV Fiber Cop...</msg><msg code="-2147467259" type="100">Falló al ejecutar (ExportToCSVFiberCop).</msg><msg code="0" type="3">Falló el sábado, 28 de diciembre de 2024 10:30:51 p. m. (Tiempo transcurrido: 22,37 segundos)</msg></messages>

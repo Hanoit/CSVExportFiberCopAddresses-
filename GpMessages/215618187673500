@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?><messages><msg code="0" type="2">Tiempo de Inicio: sábado, 28 de diciembre de 2024 9:34:47 p. m.</msg><msg code="0" type="0">23306' 22501</msg><msg code="0" type="0">Authenticated with existing session.</msg><msg code="1" type="100">Error in script execution: ERROR 000358: Expresión no válida
+Falló al ejecutar (SelectLayerByAttribute).
+</msg><msg code="1" type="100">Traceback (most recent call last):
+  File "C:\Users\mrivera\Documents\Proyectos\CSVExportFiberCopAddresses-\ExportToCSVFiberCop.py", line 223, in script_tool
+    arcpy.SelectLayerByAttribute_management(polygon_layer_name, "NEW_SELECTION", selection_query)
+  File "C:\Users\mrivera\AppData\Local\Programs\ArcGIS\Pro\Resources\ArcPy\arcpy\management.py", line 11228, in SelectLayerByAttribute
+    raise e
+  File "C:\Users\mrivera\AppData\Local\Programs\ArcGIS\Pro\Resources\ArcPy\arcpy\management.py", line 11225, in SelectLayerByAttribute
+    retval = convertArcObjectToPythonObject(gp.SelectLayerByAttribute_management(*gp_fixargs((in_layer_or_view, selection_type, where_clause, invert_where_clause), True)))
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mrivera\AppData\Local\Programs\ArcGIS\Pro\Resources\ArcPy\arcpy\geoprocessing\_base.py", line 512, in &lt;lambda&gt;
+    return lambda *args: val(*gp_fixargs(args, True))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+arcgisscripting.ExecuteError: ERROR 000358: Expresión no válida
+Falló al ejecutar (SelectLayerByAttribute).
+
+</msg><msg code="0" type="0">Secuencia de comandos errónea Export to CSV Fiber Cop...</msg><msg code="-2147467259" type="100">Falló al ejecutar (ExportToCSVFiberCop).</msg><msg code="0" type="3">Falló el sábado, 28 de diciembre de 2024 9:34:58 p. m. (Tiempo transcurrido: 10,79 segundos)</msg></messages>

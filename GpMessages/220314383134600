@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?><messages><msg code="0" type="2">Tiempo de Inicio: sábado, 28 de diciembre de 2024 10:52:59 p. m.</msg><msg code="0" type="0">23306, 22501</msg><msg code="-2147467259" type="100">﻿Traceback (most recent call last):
+﻿  File "C:\Users\mrivera\Documents\Proyectos\CSVExportFiberCopAddresses-\ExportToCSVFiberCop.py", line 330, in &lt;module&gt;
+﻿    script_tool(polygon_layer, field_name, address_layer, field_address, out_folder, custom_names, selected_polygon)
+﻿TypeError: script_tool() missing 4 required positional arguments: 'username', 'password', 'custom_names', and 'selected_polygon'
+</msg><msg code="0" type="0">Secuencia de comandos errónea Export to CSV Fiber Cop...</msg><msg code="-2147467259" type="100">Falló al ejecutar (ExportToCSVFiberCop).</msg><msg code="0" type="3">Falló el sábado, 28 de diciembre de 2024 10:53:00 p. m. (Tiempo transcurrido: 1,38 segundos)</msg></messages>
