@@ -79,10 +79,6 @@ def resolve_field_value(row, field_new_index, field_original_index):
     new_value = row[field_new_index] if row[field_new_index] not in [None, '', ' '] else None
     return new_value if new_value is not None else row[field_original_index]
 
-# Función para reemplazar valores de dirección "SNC" o 0 con un valor único
-def generate_unique_address_value():
-    return str(uuid.uuid4())  # Genera un valor único usando UUID
-
 def get_field_domains(layer_desc):
     field_domains = {}
     workspace = os.path.dirname(layer_desc.catalogPath) if layer_desc.catalogPath else arcpy.env.workspace
@@ -99,7 +95,7 @@ def get_field_domains(layer_desc):
     return field_domains
 
 
-def fcl_to_csv(fcl, csv_path, fields, custom_names):
+def fcl_to_csv(fcl, csv_path, fields, custom_names, unique_number):
     try:
         output_dir = os.path.dirname(csv_path)
         if not os.path.exists(output_dir):
@@ -111,6 +107,7 @@ def fcl_to_csv(fcl, csv_path, fields, custom_names):
         header_fields = [name for name, field in zip(custom_names, fields) if field not in COLUMNS_TO_REMOVE]
 
         with codecs.open(csv_path, "w", encoding="UTF-8") as f:
+            
             header_fields = header_fields[:-1] + ["Units", "X", "Y"]
             f.write(";".join(header_fields) + os.linesep)
 
@@ -141,7 +138,8 @@ def fcl_to_csv(fcl, csv_path, fields, custom_names):
 
                     civico_idx = fields.index("civico") if "civico" in fields else None
                     if civico_idx is not None and data_row[civico_idx] in {"SNC", "0", None}:
-                        data_row[civico_idx] = generate_unique_address_value()
+                        unique_number += 1
+                        data_row[civico_idx] = unique_number
 
                     # Handle pnrr and status fields
                     if "pnrr" in valid_fields and "status" in valid_fields:
@@ -187,13 +185,11 @@ def fcl_to_csv(fcl, csv_path, fields, custom_names):
                     if units_value == 0:
                         continue
 
-
                     # Agregar la columna "Units" al data_row
                     data_row.append(units_value)
 
                     data_row.extend([x, y])  # Add X, Y coordinates
                     f.write(";".join(map(str, data_row)) + os.linesep)
-
 
         arcpy.AddMessage("Export completed: {}".format(csv_path))
         return csv_path
@@ -249,6 +245,7 @@ def script_tool(poly_lyr, field_name, addr_lyr, fld_addr, out_dir, custom_names,
 
         # Iterar por cada polígono seleccionado
         for polygon_oid in selected_polygons:
+            unique_number = 9000
             arcpy.SelectLayerByAttribute_management(polygon_layer_name, "NEW_SELECTION", "{} = {}".format(oid_field, polygon_oid))
 
             # Obtener el nombre del polígono
@@ -266,7 +263,7 @@ def script_tool(poly_lyr, field_name, addr_lyr, fld_addr, out_dir, custom_names,
 
             if address_count > 0:
                 arcpy.AddMessage("Creating {}, total addresses={} for polygon {}".format(filepath, address_count, polygon_name))
-                fcl_to_csv(address_layer_name, filepath, fld_addr, custom_names)
+                fcl_to_csv(address_layer_name, filepath, fld_addr, custom_names, unique_number)
                 output_files.append(filepath)
             else:
                 arcpy.AddMessage("No addresses found for polygon {} (OID: {})".format(polygon_name, polygon_oid))
