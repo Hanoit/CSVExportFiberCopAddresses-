@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?><messages><msg code="0" type="2">Tiempo de Inicio: miércoles, 8 de enero de 2025 2:26:04 p. m.</msg><msg code="0" type="0">22232</msg><msg code="0" type="0">Authenticated successfully.</msg><msg code="0" type="0">Polygon SR: RD_New</msg><msg code="0" type="0">Address SR: GCS_WGS_1984</msg><msg code="0" type="0">Selected polygons: ['22232']</msg><msg code="1" type="100">Error in script execution: ERROR 999999: Algo inesperado ha provocado el fallo de la herramienta. Póngase en contacto con el Soporte técnico de Esri (http://esriurl.com/support) para reportar un error y consulte la ayuda de errores para posibles soluciones o soluciones alternativas.
+Error code: 400
+Description: Mala sintaxis en la petición.
+Message: Unable to complete operation.
+Details: Unable to perform query operation.
+Falló al ejecutar (SelectLayerByLocation).
+</msg><msg code="1" type="100">Traceback (most recent call last):
+  File "C:\Users\mrivera\Documents\Proyectos\CSVExportFiberCopAddresses-\ExportToCSVFiberCop.py", line 265, in script_tool
+    arcpy.SelectLayerByLocation_management(address_layer_name, "WITHIN", polygon_layer_name)
+  File "C:\Users\mrivera\AppData\Local\Programs\ArcGIS\Pro\Resources\ArcPy\arcpy\management.py", line 11368, in SelectLayerByLocation
+    raise e
+  File "C:\Users\mrivera\AppData\Local\Programs\ArcGIS\Pro\Resources\ArcPy\arcpy\management.py", line 11365, in SelectLayerByLocation
+    retval = convertArcObjectToPythonObject(gp.SelectLayerByLocation_management(*gp_fixargs((in_layer, overlap_type, select_features, search_distance, selection_type, invert_spatial_relationship), True)))
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mrivera\AppData\Local\Programs\ArcGIS\Pro\Resources\ArcPy\arcpy\geoprocessing\_base.py", line 512, in &lt;lambda&gt;
+    return lambda *args: val(*gp_fixargs(args, True))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+arcgisscripting.ExecuteError: ERROR 999999: Algo inesperado ha provocado el fallo de la herramienta. Póngase en contacto con el Soporte técnico de Esri (http://esriurl.com/support) para reportar un error y consulte la ayuda de errores para posibles soluciones o soluciones alternativas.
+Error code: 400
+Description: Mala sintaxis en la petición.
+Message: Unable to complete operation.
+Details: Unable to perform query operation.
+Falló al ejecutar (SelectLayerByLocation).
+
+</msg><msg code="0" type="0">Secuencia de comandos errónea Export to CSV Fiber Cop...</msg><msg code="-2147467259" type="100">Falló al ejecutar (ExportToCSVFiberCop).</msg><msg code="0" type="3">Falló el miércoles, 8 de enero de 2025 2:26:24 p. m. (Tiempo transcurrido: 20,90 segundos)</msg></messages>
